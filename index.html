@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Servidor</title>
+</head>
+<body>
+    <h1>Detalles del Servidor</h1>
+    <div id="serverDetails">
+        <!-- Los detalles del servidor se mostrarán aquí -->
+    </div>
+
+    <script>
+        // Cargar el archivo JSON desde tu repositorio en GitHub Pages
+        fetch('https://santiagotrululu.github.io/Mi-qpi/hosted.json')
+            .then(response => response.json())
+            .then(data => {
+                const server = data.query[0];  // Accede al primer servidor del JSON
+                const serverDetails = `
+                    <p><strong>Nombre:</strong> ${server.name}</p>
+                    <p><strong>IP:</strong> ${server.ip}:${server.port}</p>
+                    <p><strong>Jugadores Conectados:</strong> ${server.online}</p>
+                    <p><strong>Máximo de Jugadores:</strong> ${server.maxplayers}</p>
+                    <p><strong>Contraseña:</strong> ${server.password ? 'Sí' : 'No'}</p>
+                `;
+                document.getElementById('serverDetails').innerHTML = serverDetails;
+            })
+            .catch(error => console.error('Error al cargar el archivo JSON:', error));
+    </script>
+</body>
+</html>
