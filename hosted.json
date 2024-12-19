@@ -1,0 +1,13 @@
+{
+    "query": [
+        {
+            "number": 1,
+            "name": "Mi Servidor",
+            "ip": "102.129.137.59",
+            "port": 7760,
+            "online": 123,
+            "maxplayers": 500,
+            "password": false
+        }
+    ]
+}
